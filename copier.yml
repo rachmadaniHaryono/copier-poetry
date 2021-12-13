@@ -10,11 +10,11 @@ _tasks:
 _migrations:
     - version: 0.1.0
       before:
-          - rm --force docs/changelog.md || true
-          - rm --force docs/index.md || true
-          - rm --force docs/contributing.md || true
-          - rm --force docs/code_of_conduct.md || true
-          - rm --force docs/credits.md || true
+          - rm docs/changelog.md
+          - rm docs/index.md
+          - rm docs/contributing.md
+          - rm docs/code_of_conduct.md
+          - rm docs/credits.md
 
 # PROMPT --------------------------------
 project_name:
