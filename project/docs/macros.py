@@ -4,6 +4,7 @@ import functools
 from itertools import chain
 from pathlib import Path
 
+import logging
 import httpx
 import toml
 from jinja2 import StrictUndefined
@@ -32,8 +33,13 @@ def get_credits_data() -> dict:
 
     packages = {}
     for pkg in search_packages_info(list(dependencies)):
-        pkg = {_: pkg[_] for _ in ("name", "home-page")}  # type: ignore
-        packages[pkg["name"].lower()] = pkg  # type: ignore
+        try:
+            pkg_data = {_: pkg[_] for _ in ("name", "home-page")}  # type: ignore
+        except TypeError as err:
+            logging.debug(err, exc_info=True)
+            pkg_data = {}
+        if pkg_name := pkg_data.get("name"):
+            packages[pkg_name.lower()] = pkg_data  # type: ignore
 
     # all packages might not be credited,
     # like the ones that are now part of the standard library
