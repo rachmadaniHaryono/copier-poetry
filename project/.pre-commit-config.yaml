@@ -43,6 +43,7 @@ repos:
       rev: 0.1.0  # or specific tag
       hooks:
           - id: yamlfmt
+            exclude: .copier-answer.yml
     - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
       rev: v2.2.0
       hooks:
