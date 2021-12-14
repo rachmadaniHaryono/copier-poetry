@@ -77,3 +77,8 @@ balanced_wrapping = true
 default_section = "THIRDPARTY"
 known_first_party = "[[ python_package_import_name ]]"
 include_trailing_comma = true
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore::DeprecationWarning:pytest_sugar",
+]
