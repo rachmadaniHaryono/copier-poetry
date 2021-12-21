@@ -22,7 +22,12 @@ repos:
   - id: pretty-format-yaml
     args: [--autofix]
     exclude: .copier-answer.yml
-- repo: https://gitlab.com/smop/pre-commit-hooks
-  rev: v1.0.0
+- repo: local
   hooks:
   - id: check-poetry
+    name: Poetry check
+    description: Validates the structure of the pyproject.toml file
+    entry: poetry check
+    language: system
+    pass_filenames: false
+    files: pyproject.toml
