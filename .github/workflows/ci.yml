@@ -69,3 +69,8 @@ jobs:
 
     - name: Run the test suite
       run: make test
+
+    - name: Run pre commit
+      run: |
+        pip install pre-commit
+        SKIP=end-of-file-fixer,trailing-whitespace pre-commit run --all-files

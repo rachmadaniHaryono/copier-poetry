@@ -4,10 +4,11 @@ repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v4.0.1
   hooks:
-  - id: trailing-whitespace
-  - id: end-of-file-fixer
-  - id: check-yaml
   - id: check-added-large-files
+  - id: check-toml
+  - id: check-yaml
+  - id: end-of-file-fixer
+  - id: trailing-whitespace
 - repo: https://github.com/psf/black
       # Replace by any tag/version:
       # https://github.com/psf/black/tags
@@ -42,7 +43,14 @@ repos:
   - id: pretty-format-yaml
     args: [--autofix]
     exclude: .copier-answer.yml
-- repo: https://gitlab.com/smop/pre-commit-hooks
-  rev: v1.0.0
+    # based on
+    # https://gitlab.com/smop/pre-commit-hooks/-/blob/master/.pre-commit-hooks.yaml
+- repo: local
   hooks:
   - id: check-poetry
+    name: Poetry check
+    description: Validates the structure of the pyproject.toml file
+    entry: poetry check
+    language: system
+    pass_filenames: false
+    files: pyproject.toml
