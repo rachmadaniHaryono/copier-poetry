@@ -145,6 +145,7 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 # from copier poetry
+.coverage*
 .idea/
 pip-wheel-metadata/
 poetry.lock
