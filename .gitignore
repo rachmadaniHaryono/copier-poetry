@@ -143,3 +143,8 @@ dmypy.json
 cython_debug/
 
 # End of https://www.toptal.com/developers/gitignore/api/python
+
+# Created by https://github.com/pawamoy/copier-poetry/
+.idea/
+site/
+tests/tmp/
