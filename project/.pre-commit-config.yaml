@@ -9,6 +9,10 @@ repos:
   - id: check-yaml
   - id: end-of-file-fixer
   - id: trailing-whitespace
+- repo: https://github.com/bwhmather/ssort
+  rev: 0.10.0
+  hooks:
+  - id: ssort
 - repo: https://github.com/psf/black
   # Replace by any tag/version:
   # https://github.com/psf/black/tags
